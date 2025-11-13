@@ -171,13 +171,28 @@
       .about { grid-template-columns: 1fr; }
       .hero-visual { min-height: 180px; }
     }
+  
+    /* === Overrides to use uploaded logo as icon and hero mark === */
+    .brand-icon { 
+      width: 40px; height: 40px; border-radius: 50%; 
+      object-fit: cover; background: none !important; 
+      box-shadow: var(--card-shadow);
+      display: inline-block;
+    }
+    .brand-icon::after { display: none !important; }
+    .sun-logo { 
+      position: absolute; width: 120px; height: 120px; border-radius: 50%;
+      top: 24px; right: 24px; object-fit: cover; 
+      box-shadow: 0 10px 40px rgba(243,156,73,0.4);
+    }
+
   </style>
 </head>
 <body>
   <div class="container">
     <header class="nav" role="navigation">
       <a class="brand" href="#">
-        <span class="brand-icon" aria-hidden="true"></span>
+        <img class="brand-icon" src="favicon.png" alt="TierraMed Insights logo">
         <span>
           <div class="brand-name">TierraMed Insights</div>
           <div class="brand-tag">Independent Medical Education & Scientific Consulting</div>
@@ -207,7 +222,7 @@
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <div class="sun"></div>
+        <img src="favicon.png" class="sun-logo" alt="">
         <div class="ocean-band"></div>
       </div>
     </section>
