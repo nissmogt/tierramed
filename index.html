@@ -5,188 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TierraMed Insights — Independent Medical Education & Scientific Consulting</title>
   <meta name="description" content="Independent, evidence-based education and scientific consulting for clinicians. TierraMed Insights translates research into clear, unbiased guidance.">
-  <link rel="icon" href="image/favicon.png">
-  <style>
-    :root {
-      /* LA sunset palette */
-      --sand: #F5EDD8;        /* soft beige */
-      --sand-2: #E9D8B4;      /* deeper beige for surfaces */
-      --sun: #F39C49;         /* warm orange */
-      --ember: #D97745;       /* burnt orange for accents */
-      --ocean: #2B5E90;       /* ocean blue */
-      --sky: #6FA8DC;         /* soft sky blue */
-      --ink: #24303A;         /* slate for text */
-      --ink-2: #3A4650;       /* secondary text */
-      --card-shadow: 0 8px 24px rgba(36,48,58,0.08);
-      --ring: 0 0 0 3px rgba(47,93,144,0.2);
-      --maxw: 1100px;
-      --radius: 18px;
-    }
-
-    html, body {
-      height: 100%;
-      background: linear-gradient(180deg, var(--sand) 0%, #FFF 100%);
-      color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, "Segoe UI", Roboto, system-ui, sans-serif;
-      line-height: 1.55;
-    }
-
-    * { box-sizing: border-box; }
-
-    .container {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    header.nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 0 8px;
-    }
-
-    .brand {
-      display: flex; gap: 12px; align-items: center;
-      text-decoration: none; color: var(--ink);
-    }
-    .brand-icon {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: radial-gradient(circle at 40% 30%, var(--sun), var(--ember));
-      position: relative; box-shadow: var(--card-shadow);
-    }
-    .brand-icon::after {
-      /* horizon stripe */
-      content: ""; position: absolute; left: 10%; right: 10%; top: 55%;
-      height: 6px; border-radius: 6px; background: var(--ocean);
-    }
-    .brand-name { font-weight: 700; letter-spacing: 0.2px; }
-    .brand-tag { color: var(--ink-2); font-size: 0.95rem; }
-
-    .btn {
-      display: inline-block; padding: 12px 18px;
-      border-radius: 999px; text-decoration: none; font-weight: 600;
-      transition: transform .05s ease, box-shadow .2s ease;
-      box-shadow: var(--card-shadow);
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--sun), var(--ember));
-      color: #fff;
-    }
-    .btn-primary:hover { transform: translateY(-1px); }
-    .btn-outline {
-      color: var(--ocean); background: #fff; border: 2px solid var(--ocean);
-    }
-    .btn-outline:hover { box-shadow: 0 8px 24px rgba(43,94,144,.18); }
-
-    .hero {
-      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px;
-      align-items: center; padding: 32px 0 20px;
-    }
-    .hero-card {
-      background: #fff; border-radius: var(--radius); padding: 28px;
-      box-shadow: var(--card-shadow); border: 1px solid rgba(36,48,58,0.06);
-    }
-    h1 {
-      font-size: clamp(28px, 5vw, 44px); line-height: 1.15; margin: 0 0 10px;
-      letter-spacing: -0.2px;
-    }
-    .lead {
-      font-size: clamp(16px, 2.2vw, 18px); color: var(--ink-2); margin: 10px 0 20px;
-    }
-    .pill {
-      display: inline-flex; align-items: center; gap: 8px; font-weight: 600;
-      color: var(--ocean); background: rgba(47,93,144,0.08); padding: 8px 12px;
-      border-radius: 999px; margin-bottom: 14px;
-    }
-    .hero-badge {
-      display: inline-block; padding: 8px 12px; font-weight: 700;
-      color: #17446F; background: linear-gradient(180deg, #EAF4FF, #DDEBFA);
-      border: 1px solid #C9DEEF; border-radius: 10px; margin-bottom: 12px;
-    }
-    .hero-visual {
-      background: linear-gradient(160deg, var(--sand-2), #fff);
-      border-radius: var(--radius); height: 100%;
-      min-height: 260px; position: relative; border: 1px solid rgba(36,48,58,0.06);
-      box-shadow: var(--card-shadow);
-    }
-    .sun {
-      position: absolute; width: 120px; height: 120px; border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #FFD8A6, var(--sun));
-      top: 24px; right: 24px; box-shadow: 0 10px 40px rgba(243,156,73,0.4);
-    }
-    .ocean-band {
-      position: absolute; bottom: 40px; left: 0; right: 0; height: 70px;
-      background: linear-gradient(180deg, var(--sky), var(--ocean));
-      border-radius: 0 0 var(--radius) var(--radius);
-    }
-    .stat {
-      display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; align-items: center;
-      margin: 16px 0 0; font-size: 0.95rem; color: var(--ink-2);
-    }
-    .dot {
-      width: 10px; height: 10px; border-radius: 50%; background: var(--ember);
-      box-shadow: 0 0 0 4px rgba(217,119,69,.15);
-    }
-
-    .section {
-      padding: 40px 0;
-    }
-
-    .cards {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-    }
-    .card {
-      background: #fff; padding: 20px; border-radius: var(--radius);
-      box-shadow: var(--card-shadow); border: 1px solid rgba(36,48,58,0.06);
-    }
-    .card h3 { margin: 0 0 8px; font-size: 1.15rem; }
-    .card p { margin: 0; color: var(--ink-2); }
-
-    .callout {
-      background: linear-gradient(180deg, #FFF8EF, #FFF);
-      border: 1px solid rgba(243,156,73,0.25);
-      border-radius: var(--radius);
-      padding: 18px; display: flex; align-items: center; gap: 12px; margin-top: 16px;
-    }
-
-    .about {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
-    }
-
-    .disclaimer {
-      font-size: .9rem; color: var(--ink-2); background: #fff; padding: 16px;
-      border-radius: var(--radius); border: 1px solid rgba(36,48,58,0.06);
-      box-shadow: var(--card-shadow);
-    }
-
-    footer {
-      border-top: 1px solid rgba(36,48,58,0.08); padding: 18px 0; margin-top: 20px;
-      color: var(--ink-2); font-size: 0.95rem;
-    }
-
-    @media (max-width: 920px) {
-      .hero { grid-template-columns: 1fr; }
-      .cards { grid-template-columns: 1fr; }
-      .about { grid-template-columns: 1fr; }
-      .hero-visual { min-height: 180px; }
-    }
-  
-    /* === Overrides to use uploaded logo as icon and hero mark === */
-    .brand-icon { 
-      width: 40px; height: 40px; border-radius: 50%; 
-      object-fit: cover; background: none !important; 
-      box-shadow: var(--card-shadow);
-      display: inline-block;
-    }
-    .brand-icon::after { display: none !important; }
-    .sun-logo { 
-      position: absolute; width: 120px; height: 120px; border-radius: 50%;
-      top: 24px; right: 24px; object-fit: cover; 
-      box-shadow: 0 10px 40px rgba(243,156,73,0.4);
-    }
-
-  </style>
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
@@ -207,73 +27,31 @@
       <div class="hero-card">
         <div class="pill">Evidence • Education • Clarity</div>
         <h1>Independent, evidence-based insights for nephrology teams.</h1>
-        <p class="lead">We synthesize complex research into clear, unbiased education—so clinicians can focus on care, not paperwork.</p>
-        <div style="display:flex; gap:10px; flex-wrap: wrap;">
-          <a class="btn btn-primary" href="mailto:contact@tierramedinsights.com?subject=Request%20a%20Briefing
-		  &body=Hi%2C%0D%0A%0D%0AI%E2%80%99d%20like%20to%20request%20a%20briefing%20to%20learn%20more.%0D%0A%0D%0AHere%E2%80%99s%20my%20availability%3A%0D%0A-%20Preferred%20days%3A%20%0D%0A-%20Preferred%20time%3A%20%0D%0A%0D%0A(Optional)%20Topics%20of%20interest%3A%0D%0A-%20High-volume%20HDF%0D%0A-%20Recent%20trials%20or%20guidelines%0D%0A-%20Practice%20insights%20and%20workflow%20considerations%0D%0A%0D%0AThank%20you%2C%0D%0A%0D%0A">Request a briefing</a>
-          <a class="btn btn-outline" href="#services">View services</a>
-        </div>
-        <div class="callout" role="note">
-          <span style="width:10px; height:10px; border-radius:50%; background:var(--ocean)"></span>
-          <div><strong>Non‑promotional. Non‑clinical.</strong> Pure scientific education and practice insights—product‑agnostic.</div>
-        </div>
-        <div class="stat">
-          <span class="dot" aria-hidden="true"></span>
-          <span><strong>Typical format:</strong> 30–45 min briefing • 1‑page summary • Q&A</span>
-        </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <img src="favicon.png" class="sun-logo" alt="">
-        <div class="ocean-band"></div>
+        <p class="lead">
+          We synthesize complex research into clear, unbiased scientific communication tailored for clinicians.
+        </p>
+        <a class="btn btn-outline" href="#briefing">Request a Briefing</a>
       </div>
     </section>
 
-    <section id="services" class="section">
-      <h2 style="margin:0 0 12px">Services</h2>
-      <p class="lead" style="margin-top:0">Flexible, fixed‑fee packages tailored to private nephrology practices.</p>
-      <div class="cards">
-        <div class="card">
-          <h3>Evidence Briefings</h3>
-          <p>Concise reviews of new trials and guidelines (e.g., HV‑HDF, CKD updates), with clinical implications and references.</p>
-        </div>
-        <div class="card">
-          <h3>Journal Clubs</h3>
-          <p>Slides, facilitation, and discussion prompts for teams—neutral and product‑agnostic.</p>
-        </div>
-        <div class="card">
-          <h3>Practice Insight Reports</h3>
-          <p>Literature synthesis + workflow considerations for QI initiatives. De‑identified, non‑clinical.</p>
-        </div>
+    <section class="services">
+      <div class="service-card">
+        <h2>Scientific Education</h2>
+        <p>Clinically relevant, literature-grounded summaries for nephrology practices.</p>
       </div>
-    </section>
-
-    <section class="section about">
-      <div class="card">
-        <h3>About</h3>
-        <p>TierraMed Insights helps clinicians stay current with evolving evidence. We translate peer‑reviewed research into clear, actionable education—independent of industry influence.</p>
-        <p style="margin-top:10px;"><strong>Focus:</strong> Nephrology practices in Greater Los Angeles.</p>
+      <div class="service-card">
+        <h2>Research Insights</h2>
+        <p>Analysis of emerging clinical trials, biomarkers, and dialysis innovations.</p>
       </div>
-      <div class="disclaimer">
-        <strong>Disclaimer:</strong> TierraMed Insights provides educational and scientific consulting services only. We do not provide medical advice, diagnosis, or treatment, and we do not promote or sell products.
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="card" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-        <div>
-          <h3>Contact</h3>
-          <p class="lead" style="margin:0;">Ready for a briefing or have a question? We’d love to hear from you.</p>
-        </div>
-        <a class="btn btn-primary" href="mailto:contact@tierramedinsights.com?subject=Inquiry%20from%20website">contact@tierramedinsights.com</a>
+      <div class="service-card">
+        <h2>KOL Engagement</h2>
+        <p>Support for journal clubs, discussions, and evidence-based decision-making.</p>
       </div>
     </section>
 
     <footer>
-      <div>&copy; <span id="y"></span> TierraMed Insights • Los Angeles, California</div>
+      © TierraMed Insights — Independent Scientific Consulting
     </footer>
   </div>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
